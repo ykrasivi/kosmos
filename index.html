@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; media-src 'none'; font-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Космос - бортовой журнал кота</title>
+<meta name="description" content="Личная страница кота по имени Космос: досье, миссии и созвездие фотографий.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0a24">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%23ffc94d'/%3E%3Cpath d='M12 24l6-14 10 8zM52 24l-6-14-10 8z' fill='%23ffc94d'/%3E%3C/svg%3E">
+  <script type="module" crossorigin src="/kosmos/assets/index-kQr-vrMm.js"></script>
+  <link rel="stylesheet" crossorigin href="/kosmos/assets/index-BgpF-rHY.css">
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<a class="skip" href="#main">К содержимому</a>
+
+<header class="top">
+  <a class="brand" href="#top" aria-label="Космос, в начало"><span aria-hidden="true">✦</span> Космос</a>
+  <nav aria-label="Разделы">
+    <a href="#dossier">Досье</a>
+    <a href="#missions">Миссии</a>
+    <a href="#gallery">Созвездие</a>
+    <a href="#growth">Рост</a>
+  </nav>
+  <button id="sound" class="chip" type="button" aria-pressed="false">
+    <span class="chip-icon" aria-hidden="true">🔇</span><span class="chip-text">Мурчание: выкл</span>
+  </button>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="hero-text">
+      <p class="eyebrow">Бортовой журнал, запись №1</p>
+      <h1>Космос</h1>
+      <p class="lead">Небесное тело мохнатого типа. Притягивает диваны, подушки и взгляды. Диаметр уточняется после обеда.</p>
+      <div class="actions">
+        <button id="pet" class="btn" type="button">Погладить</button>
+        <button id="launch" class="btn ghost" type="button">Запустить ракету</button>
+      </div>
+      <p id="status" class="status" role="status" aria-live="polite">Командир на связи.</p>
+    </div>
+    <div class="hero-visual">
+      <div class="orbit orbit-a" aria-hidden="true"><i></i></div>
+      <div class="orbit orbit-b" aria-hidden="true"><i></i></div>
+      <button class="porthole" id="cat" type="button" aria-label="Космос на диване, сидит как капитан. Нажми, чтобы он замурчал">
+        <picture>
+          <source type="image/avif" srcset="/kosmos/img/08-480.avif 480w, /kosmos/img/08-800.avif 800w" sizes="(max-width: 700px) 280px, 420px">
+          <source type="image/webp" srcset="/kosmos/img/08-480.webp 480w, /kosmos/img/08-800.webp 800w" sizes="(max-width: 700px) 280px, 420px">
+          <img src="/kosmos/img/08-800.webp" width="800" height="1067" alt="Серебристо-серый полосатый кот с жёлтыми глазами сидит на диване, как человек, опираясь на подлокотник. Вид у него начальственный." fetchpriority="high">
+        </picture>
+      </button>
+    </div>
+    <a class="scroll-hint" href="#dossier" aria-label="Вниз, к досье"><span aria-hidden="true">↓</span></a>
+  </section>
+
+  <section class="sec" id="dossier" aria-labelledby="dossier-h">
+    <h2 id="dossier-h">Досье</h2>
+    <p class="sec-sub">Все шкалы шуточные. Измерено на глаз, на ощупь и по количеству шерсти на свитере.</p>
+    <dl class="stats" id="stats"></dl>
+  </section>
+
+  <section class="sec" id="missions" aria-labelledby="missions-h">
+    <h2 id="missions-h">Миссии</h2>
+    <p class="sec-sub">Короткие отчёты с орбиты. Все операции прошли успешно, кроме тех, которые прошли слишком успешно.</p>
+    <div class="missions" id="missions-list"></div>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="gallery-h">
+    <h2 id="gallery-h">Созвездие Кота</h2>
+    <p class="sec-sub">Девять ярких звёзд. Нажми на любую, чтобы приблизить. Листать можно стрелками или свайпом.</p>
+    <ul class="gallery" id="gallery-list"></ul>
+  </section>
+
+  <section class="sec" id="growth" aria-labelledby="growth-h">
+    <h2 id="growth-h">Как рос командир</h2>
+    <p class="sec-sub">Было крошечное. Стало величественное. Язык, правда, остался на месте.</p>
+    <div class="growth" id="growth-list"></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Космос одобрил этот сайт лапой.</p>
+  <p class="small">Сделано с теплом. Сайт без рекламы и трекеров.</p>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр фото" hidden>
+  <button class="lb-close" id="lb-close" type="button" aria-label="Закрыть">✕</button>
+  <button class="lb-nav lb-prev" id="lb-prev" type="button" aria-label="Предыдущее фото">‹</button>
+  <button class="lb-nav lb-next" id="lb-next" type="button" aria-label="Следующее фото">›</button>
+  <figure class="lb-fig" id="lb-fig">
+    <picture id="lb-pic"></picture>
+    <figcaption id="lb-cap"></figcaption>
+  </figure>
+</div>
+
+</body>
+</html>
